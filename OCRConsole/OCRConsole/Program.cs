@@ -442,8 +442,8 @@ namespace OCRConsole
 
                     //PRINT CYCLE DATA TO CONSOLE
 
-                    Console.WriteLine("        Pat-   Output  Mapped                                                    Max Abs Error   Target Max Abs   Avg Output Wt   Max Output Wt  Output Wt[0,0]");
-                    Console.WriteLine("Cycle   tern   Neuron Character  Target Value    Output Value        Error       Previous Cycle   Cycle Error     This Pattern    This Pattern     This Cyle");
+                    Console.WriteLine("        Pat-   Output  Mapped                                                    Max Abs Error   Target Max Abs   Avg Output Wt   Max Output Wt   Output Wt[0,0]");
+                    Console.WriteLine("Cycle   tern   Neuron Character  Target Value    Output Value        Error       Previous Cycle   Cycle Error     This Pattern    This Pattern      This Cyle");
                     Console.WriteLine();
 
                     for (int l = 0; l < output_neuron_count; l++)
@@ -473,7 +473,7 @@ namespace OCRConsole
             DateTime date2 = new DateTime();
             date2 = DateTime.Now;
             TimeSpan interval = date2 - date1;
-            Console.WriteLine("{0} - {1} = {2}", date2, date1, interval.ToString("00:00:00"));
+            Console.WriteLine("{0} - {1} = {0:c}", date2, date1, interval.ToString());
             Console.ReadLine();
         }
     }
