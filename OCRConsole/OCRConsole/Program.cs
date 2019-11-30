@@ -442,8 +442,8 @@ namespace OCRConsole
 
                     //PRINT CYCLE DATA TO CONSOLE
 
-                    Console.WriteLine("        Pat-   Output  Mapped                                                    Max Abs Error   Target Max Abs   Avg Output Wt   Max Output Wt   Output Wt[0,0]");
-                    Console.WriteLine("Cycle   tern   Neuron Character  Target Value    Output Value        Error       Previous Cycle   Cycle Error     This Pattern    This Pattern      This Cyle");
+                    Console.WriteLine("        Pat-   Output  Mapped                                                    Max Abs Error   Target Max Abs   Avg Output Wt   Max Output Wt  Output Wt[0,0]");
+                    Console.WriteLine("Cycle   tern   Neuron Character  Target Value    Output Value        Error       Previous Cycle   Cycle Error     This Pattern    This Pattern     This Cyle");
                     Console.WriteLine();
 
                     for (int l = 0; l < output_neuron_count; l++)
