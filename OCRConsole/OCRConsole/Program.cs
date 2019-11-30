@@ -331,7 +331,7 @@ namespace OCRConsole
             DateTime date1 = new DateTime();
             date1 = DateTime.Now;
 
-            Decimal limit = 0.01M;
+            Decimal limit = 0.1M;
             Decimal max_cycle_error = 1.00000000000M;
             Decimal max_last_cycle_error = 1.00000000000M;
             int h = -1;
