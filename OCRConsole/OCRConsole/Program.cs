@@ -473,7 +473,7 @@ namespace OCRConsole
             DateTime date2 = new DateTime();
             date2 = DateTime.Now;
             TimeSpan interval = date2 - date1;
-            Console.WriteLine("{0} - {1} = {2}", date2, date1, interval.ToString());
+            Console.WriteLine("{0} - {1} = {2}", date2, date1, $"{interval:hh\\:mm\\:ss}");
             Console.ReadLine();
         }
     }
