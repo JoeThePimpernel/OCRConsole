@@ -1,14 +1,19 @@
-﻿using System;
+﻿// <copyright file="Program.cs" company="JoeThePimpernel">
+// Copyright (c) JoeThePimpernel. All Rights Reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
 
 namespace OCRConsole
 {
-    class Program
+    using System;
+
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            //int patterns = 36;
-            //int input_values = 25;
-            //int output_target_values = 36;
+            //// int patterns = 36;
+            //// int input_values = 25;
+            //// int output_target_values = 36;
 
             char[] character = new char[]
             {
@@ -52,238 +57,309 @@ namespace OCRConsole
 
             int[,] input_value = new int[,]
             {
-                {0,1,1,1,0,
-                 1,0,0,0,1,
-                 1,1,1,1,1,
-                 1,0,0,0,1,
-                 1,0,0,0,1},
-                {1,1,1,1,0,
-                 1,0,0,0,1,
-                 1,1,1,1,0,
-                 1,0,0,0,1,
-                 1,1,1,1,0},
-                {1,1,1,1,1,
-                 1,0,0,0,0,
-                 1,0,0,0,0,
-                 1,0,0,0,0,
-                 1,1,1,1,1},
-                {1,1,1,1,0,
-                 1,0,0,0,1,
-                 1,0,0,0,1,
-                 1,0,0,0,1,
-                 1,1,1,1,0},
-                {1,1,1,1,1,
-                 1,0,0,0,0,
-                 1,1,1,0,0,
-                 1,0,0,0,0,
-                 1,1,1,1,1},
-                {1,1,1,1,1,
-                 1,0,0,0,0,
-                 1,1,1,0,0,
-                 1,0,0,0,0,
-                 1,0,0,0,0},
-                {1,1,1,1,1,
-                 1,0,0,0,0,
-                 1,0,1,1,1,
-                 1,0,0,0,1,
-                 1,1,1,1,1},
-                {1,0,0,0,1,
-                 1,0,0,0,1,
-                 1,1,1,1,1,
-                 1,0,0,0,1,
-                 1,0,0,0,1},
-                {0,1,1,1,0,
-                 0,0,1,0,0,
-                 0,0,1,0,0,
-                 0,0,1,0,0,
-                 0,1,1,1,0},
-                {0,0,0,1,0,
-                 0,0,0,1,0,
-                 0,0,0,1,0,
-                 0,1,0,1,0,
-                 0,1,1,1,0},
-                {1,0,0,0,1,
-                 1,0,0,1,0,
-                 1,1,1,0,0,
-                 1,0,0,1,0,
-                 1,0,0,0,1},
-                {1,0,0,0,0,
-                 1,0,0,0,0,
-                 1,0,0,0,0,
-                 1,0,0,0,0,
-                 1,1,1,1,1},
-                {1,0,0,0,1,
-                 1,1,0,1,1,
-                 1,0,1,0,1,
-                 1,0,0,0,1,
-                 1,0,0,0,1},
-                {1,0,0,0,1,
-                 1,1,0,0,1,
-                 1,0,1,0,1,
-                 1,0,0,1,1,
-                 1,0,0,0,1},
-                {0,1,1,1,0,
-                 1,0,0,0,1,
-                 1,0,0,0,1,
-                 1,0,0,0,1,
-                 0,1,1,1,0},
-                {1,1,1,1,0,
-                 1,0,0,0,1,
-                 1,1,1,1,0,
-                 1,0,0,0,0,
-                 1,0,0,0,0},
-                {0,1,1,0,0,
-                 1,0,0,1,0,
-                 1,0,0,1,0,
-                 1,0,0,1,0,
-                 0,1,1,0,1},
-                {1,1,1,1,0,
-                 1,0,0,0,1,
-                 1,1,1,1,0,
-                 1,0,0,1,0,
-                 1,0,0,0,1},
-                {0,1,1,1,1,
-                 1,0,0,0,0,
-                 0,1,1,1,0,
-                 0,0,0,0,1,
-                 1,1,1,1,0},
-                {1,1,1,1,1,
-                 0,0,1,0,0,
-                 0,0,1,0,0,
-                 0,0,1,0,0,
-                 0,0,1,0,0},
-                {1,0,0,0,1,
-                 1,0,0,0,1,
-                 1,0,0,0,1,
-                 1,0,0,0,1,
-                 0,1,1,1,0},
-                {1,0,0,0,1,
-                 1,0,0,0,1,
-                 1,0,0,0,1,
-                 0,1,0,1,0,
-                 0,0,1,0,0},
-                {1,0,0,0,1,
-                 1,0,0,0,1,
-                 1,0,1,0,1,
-                 1,1,0,1,1,
-                 1,0,0,0,1},
-                {1,0,0,0,1,
-                 0,1,0,1,0,
-                 0,0,1,0,0,
-                 0,1,0,1,0,
-                 1,0,0,0,1},
-                {1,0,0,0,1,
-                 0,1,0,1,0,
-                 0,0,1,0,0,
-                 0,0,1,0,0,
-                 0,0,1,0,0},
-                {1,1,1,1,1,
-                 0,0,0,1,0,
-                 0,0,1,0,0,
-                 0,1,0,0,0,
-                 1,1,1,1,1},
-                {0,1,1,1,0,
-                 1,0,0,1,1,
-                 1,0,1,0,1,
-                 1,1,0,0,1,
-                 0,1,1,1,0},
-                {0,1,1,0,0,
-                 0,0,1,0,0,
-                 0,0,1,0,0,
-                 0,0,1,0,0,
-                 0,0,1,0,0},
-                {1,1,1,1,0,
-                 0,0,0,0,1,
-                 0,1,1,1,0,
-                 1,0,0,0,0,
-                 1,1,1,1,1},
-                {1,1,1,1,0,
-                 0,0,0,0,1,
-                 0,1,1,1,0,
-                 0,0,0,0,1,
-                 1,1,1,1,0},
-                {1,0,0,0,1,
-                 1,0,0,0,1,
-                 1,1,1,1,1,
-                 0,0,0,0,1,
-                 0,0,0,0,1},
-                {1,1,1,1,1,
-                 1,0,0,0,0,
-                 1,1,1,1,0,
-                 0,0,0,0,1,
-                 1,1,1,1,0},
-                {1,0,0,0,0,
-                 1,0,0,0,0,
-                 1,1,1,1,0,
-                 1,0,0,0,1,
-                 0,1,1,1,0},
-                {1,1,1,1,1,
-                 0,0,0,0,1,
-                 0,0,0,1,0,
-                 0,0,1,0,0,
-                 0,0,1,0,0},
-                {0,1,1,1,0,
-                 1,0,0,0,1,
-                 0,1,1,1,0,
-                 1,0,0,0,1,
-                 0,1,1,1,0},
-                {0,1,1,1,0,
-                 1,0,0,0,1,
-                 0,1,1,1,1,
-                 0,0,0,0,1,
-                 0,0,0,0,1}
+                {
+                    0, 1, 1, 1, 0,
+                    1, 0, 0, 0, 1,
+                    1, 1, 1, 1, 1,
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                },
+                {
+                    1, 1, 1, 1, 0,
+                    1, 0, 0, 0, 1,
+                    1, 1, 1, 1, 0,
+                    1, 0, 0, 0, 1,
+                    1, 1, 1, 1, 0,
+                },
+                {
+                    1, 1, 1, 1, 1,
+                    1, 0, 0, 0, 0,
+                    1, 0, 0, 0, 0,
+                    1, 0, 0, 0, 0,
+                    1, 1, 1, 1, 1,
+                },
+                {
+                    1, 1, 1, 1, 0,
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                    1, 1, 1, 1, 0,
+                },
+                {
+                    1, 1, 1, 1, 1,
+                    1, 0, 0, 0, 0,
+                    1, 1, 1, 0, 0,
+                    1, 0, 0, 0, 0,
+                    1, 1, 1, 1, 1,
+                },
+                {
+                    1, 1, 1, 1, 1,
+                    1, 0, 0, 0, 0,
+                    1, 1, 1, 0, 0,
+                    1, 0, 0, 0, 0,
+                    1, 0, 0, 0, 0,
+                },
+                {
+                    1, 1, 1, 1, 1,
+                    1, 0, 0, 0, 0,
+                    1, 0, 1, 1, 1,
+                    1, 0, 0, 0, 1,
+                    1, 1, 1, 1, 1,
+                },
+                {
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                    1, 1, 1, 1, 1,
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                },
+                {
+                    0, 1, 1, 1, 0,
+                    0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0,
+                    0, 1, 1, 1, 0,
+                },
+                {
+                    0, 0, 0, 1, 0,
+                    0, 0, 0, 1, 0,
+                    0, 0, 0, 1, 0,
+                    0, 1, 0, 1, 0,
+                    0, 1, 1, 1, 0,
+                },
+                {
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 1, 0,
+                    1, 1, 1, 0, 0,
+                    1, 0, 0, 1, 0,
+                    1, 0, 0, 0, 1,
+                },
+                {
+                    1, 0, 0, 0, 0,
+                    1, 0, 0, 0, 0,
+                    1, 0, 0, 0, 0,
+                    1, 0, 0, 0, 0,
+                    1, 1, 1, 1, 1,
+                },
+                {
+                    1, 0, 0, 0, 1,
+                    1, 1, 0, 1, 1,
+                    1, 0, 1, 0, 1,
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                },
+                {
+                    1, 0, 0, 0, 1,
+                    1, 1, 0, 0, 1,
+                    1, 0, 1, 0, 1,
+                    1, 0, 0, 1, 1,
+                    1, 0, 0, 0, 1,
+                },
+                {
+                    0, 1, 1, 1, 0,
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                    0, 1, 1, 1, 0,
+                },
+                {
+                    1, 1, 1, 1, 0,
+                    1, 0, 0, 0, 1,
+                    1, 1, 1, 1, 0,
+                    1, 0, 0, 0, 0,
+                    1, 0, 0, 0, 0,
+                },
+                {
+                    0, 1, 1, 0, 0,
+                    1, 0, 0, 1, 0,
+                    1, 0, 0, 1, 0,
+                    1, 0, 0, 1, 0,
+                    0, 1, 1, 0, 1,
+                },
+                {
+                    1, 1, 1, 1, 0,
+                    1, 0, 0, 0, 1,
+                    1, 1, 1, 1, 0,
+                    1, 0, 0, 1, 0,
+                    1, 0, 0, 0, 1,
+                },
+                {
+                    0, 1, 1, 1, 1,
+                    1, 0, 0, 0, 0,
+                    0, 1, 1, 1, 0,
+                    0, 0, 0, 0, 1,
+                    1, 1, 1, 1, 0,
+                },
+                {
+                    1, 1, 1, 1, 1,
+                    0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0,
+                },
+                {
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                    0, 1, 1, 1, 0,
+                },
+                {
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                    0, 1, 0, 1, 0,
+                    0, 0, 1, 0, 0,
+                },
+                {
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                    1, 0, 1, 0, 1,
+                    1, 1, 0, 1, 1,
+                    1, 0, 0, 0, 1,
+                },
+                {
+                    1, 0, 0, 0, 1,
+                    0, 1, 0, 1, 0,
+                    0, 0, 1, 0, 0,
+                    0, 1, 0, 1, 0,
+                    1, 0, 0, 0, 1,
+                },
+                {
+                    1, 0, 0, 0, 1,
+                    0, 1, 0, 1, 0,
+                    0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0,
+                },
+                {
+                    1, 1, 1, 1, 1,
+                    0, 0, 0, 1, 0,
+                    0, 0, 1, 0, 0,
+                    0, 1, 0, 0, 0,
+                    1, 1, 1, 1, 1,
+                },
+                {
+                    0, 1, 1, 1, 0,
+                    1, 0, 0, 1, 1,
+                    1, 0, 1, 0, 1,
+                    1, 1, 0, 0, 1,
+                    0, 1, 1, 1, 0,
+                },
+                {
+                    0, 1, 1, 0, 0,
+                    0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0,
+                },
+                {
+                    1, 1, 1, 1, 0,
+                    0, 0, 0, 0, 1,
+                    0, 1, 1, 1, 0,
+                    1, 0, 0, 0, 0,
+                    1, 1, 1, 1, 1,
+                },
+                {
+                    1, 1, 1, 1, 0,
+                    0, 0, 0, 0, 1,
+                    0, 1, 1, 1, 0,
+                    0, 0, 0, 0, 1,
+                    1, 1, 1, 1, 0,
+                },
+                {
+                    1, 0, 0, 0, 1,
+                    1, 0, 0, 0, 1,
+                    1, 1, 1, 1, 1,
+                    0, 0, 0, 0, 1,
+                    0, 0, 0, 0, 1,
+                },
+                {
+                    1, 1, 1, 1, 1,
+                    1, 0, 0, 0, 0,
+                    1, 1, 1, 1, 0,
+                    0, 0, 0, 0, 1,
+                    1, 1, 1, 1, 0,
+                },
+                {
+                    1, 0, 0, 0, 0,
+                    1, 0, 0, 0, 0,
+                    1, 1, 1, 1, 0,
+                    1, 0, 0, 0, 1,
+                    0, 1, 1, 1, 0,
+                },
+                {
+                    1, 1, 1, 1, 1,
+                    0, 0, 0, 0, 1,
+                    0, 0, 0, 1, 0,
+                    0, 0, 1, 0, 0,
+                    0, 0, 1, 0, 0,
+                },
+                {
+                    0, 1, 1, 1, 0,
+                    1, 0, 0, 0, 1,
+                    0, 1, 1, 1, 0,
+                    1, 0, 0, 0, 1,
+                    0, 1, 1, 1, 0,
+                },
+                {
+                    0, 1, 1, 1, 0,
+                    1, 0, 0, 0, 1,
+                    0, 1, 1, 1, 1,
+                    0, 0, 0, 0, 1,
+                    0, 0, 0, 0, 1,
+                },
             };
 
             int[,] output_target_value = new int[,]
             {
-            //   A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9
-                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1}
+             //// A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  0  1  2  3  4  5  6  7  8  9
+                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
             };
 
-            //CREATE VARIABLES
-
+            // CREATE VARIABLES
             int patterns = character.Length;
             int input_values = input_value.Length / patterns;
             int output_target_values = output_target_value.Length / patterns;
 
             int input_neuron_count = input_values + 1;
             int output_neuron_count = output_target_values;
-            int middle_neuron_count = (input_values + output_target_values) / 2 + 1;
+            int middle_neuron_count = ((input_values + output_target_values) / 2) + 1;
 
             decimal[] middle_neuron_sum = new decimal[middle_neuron_count];
             decimal[] output_neuron_sum = new decimal[output_neuron_count];
@@ -297,77 +373,70 @@ namespace OCRConsole
             decimal[,] inwt = new decimal[input_neuron_count, middle_neuron_count];
             decimal[,] outwt = new decimal[middle_neuron_count, output_neuron_count];
 
-            //CREATE RANDOM NUMBER GENERATOR
-
+            // CREATE RANDOM NUMBER GENERATOR
             Random randomNumbers = new Random(); // random number generator
 
-            //SET CONNECTION WEIGHTS RANDOMLY BETWEEN -1 and +1 FOR INPUT LAYER CONNECTION WEIGHTS
-
+            // SET CONNECTION WEIGHTS RANDOMLY BETWEEN -1 and +1 FOR INPUT LAYER CONNECTION WEIGHTS
             for (int i = 0; i < input_neuron_count; i++)
             {
                 for (int j = 0; j < middle_neuron_count; j++)
                 {
-                    inwt[i, j] = Convert.ToDecimal((randomNumbers.Next(0, 20000000) - 10000000)) / 10000000;
+                    inwt[i, j] = Convert.ToDecimal(randomNumbers.Next(0, 20000000) - 10000000) / 10000000;
                 }
             }
 
-            //SET CONNECTION WEIGHTS RANDOMLY BETWEEN -1 and +1 FOR OUTPUT LAYER CONNECTION WEIGHTS
-
+            // SET CONNECTION WEIGHTS RANDOMLY BETWEEN -1 and +1 FOR OUTPUT LAYER CONNECTION WEIGHTS
             for (int i = 0; i < middle_neuron_count; i++)
             {
                 for (int j = 0; j < output_neuron_count; j++)
                 {
-                    outwt[i, j] = Convert.ToDecimal((randomNumbers.Next(0, 20000000) - 10000000)) / 10000000;
+                    outwt[i, j] = Convert.ToDecimal(randomNumbers.Next(0, 20000000) - 10000000) / 10000000;
                 }
             }
 
-            //SET BIAS NEURON VALUES TO 1
-
+            // SET BIAS NEURON VALUES TO 1
             input_neuron_value[input_neuron_count - 1] = 1;
             middle_neuron_value[middle_neuron_count - 1] = 1;
 
-            //CREATE CYCLE STATISTIC VARIABLES
+            // CREATE CYCLE STATISTIC VARIABLES
+            DateTime date1 = DateTime.Now;
 
-            DateTime date1 = new DateTime();
-            date1 = DateTime.Now;
-
-            Decimal limit = 0.1M;
-            Decimal max_cycle_error = 1.00000000000M;
-            Decimal max_last_cycle_error = 1.00000000000M;
+            var limit = 0.1M;
+            var max_cycle_error = 1.00000000000M;
+            var max_last_cycle_error = 1.00000000000M;
             int h = -1;
 
-            int OutputWeightCount = 0;
-            decimal AbsouluteValueOutputWeightSum = 0;
-            decimal AverageAbsoluteValueOutputWeight;
-            decimal MaxAbsoluteValueOutputWeight = 0;
+            var outputWeightCount = 0;
+            decimal absouluteValueOutputWeightSum = 0;
+            decimal averageAbsoluteValueOutputWeight;
+            decimal maxAbsoluteValueOutputWeight = 0;
 
-            //LOOP THROUGH TRAINING PATTERNS
+            // LOOP THROUGH TRAINING PATTERNS
 
-            while (Math.Abs(max_cycle_error) > limit) //STOP TRAINING WHEN CYCLE ERROR <= LIMIT
+            // STOP TRAINING WHEN CYCLE ERROR <= LIMIT
+            while (Math.Abs(max_cycle_error) > limit)
             {
-                h += 1; //CYCLE INDEX
+                h += 1; // CYCLE INDEX
 
-                for (int i = 0; i < patterns; i++) //PATTERN INDEX
+                // PATTERN INDEX
+                for (int i = 0; i < patterns; i++)
                 {
-                    //BEGIN FEED-FORWARD 
+                    //// BEGIN FEED-FORWARD
 
-                    //RESET CYCLE ERROR ACCUMULATORS TO ZERO
-
+                    // RESET CYCLE ERROR ACCUMULATORS TO ZERO
                     if (i == 0)
                     {
                         max_last_cycle_error = max_cycle_error;
                         max_cycle_error = 0;
                     }
 
-                    //RESET MIDDLE NEURON SUMS TO ZERO
-
+                    // RESET MIDDLE NEURON SUMS TO ZERO
                     for (int k = 0; k < middle_neuron_count - 1; k++)
                     {
                         middle_neuron_sum[k] = 0;
                     }
 
-                    //ACCUMULATE SUM OF INPUT NEURON ACTIVATION VALUE x INPUT LAYER WEIGHT FOR EACH MIDDLE NEURON
-
+                    // ACCUMULATE SUM OF INPUT NEURON ACTIVATION VALUE x INPUT LAYER WEIGHT FOR EACH MIDDLE NEURON
                     for (int j = 0; j < input_neuron_count - 1; j++)
                     {
                         for (int k = 0; k < middle_neuron_count - 1; k++)
@@ -376,23 +445,20 @@ namespace OCRConsole
                         }
                     }
 
-                    //CALCULATE MIDDLE NEURON ACTIVATION VALUES
-
+                    // CALCULATE MIDDLE NEURON ACTIVATION VALUES
                     for (int j = 0; j < middle_neuron_count - 1; j++)
                     {
                         double sum = Convert.ToDouble(middle_neuron_sum[j]);
                         middle_neuron_value[j] = Convert.ToDecimal(1 / (1 + Math.Exp(-sum)));
                     }
 
-                    //RESET OUTPUT NEURON SUMS TO ZERO
-
+                    // RESET OUTPUT NEURON SUMS TO ZERO
                     for (int k = 0; k < output_neuron_count; k++)
                     {
                         output_neuron_sum[k] = 0;
                     }
 
-                    //ACCUMULATE SUM OF MIDDLE NEURON ACTIVATION VALUE x OUTPUT LAYER WEIGHT FOR EACH OUTPUT NEURON
-
+                    // ACCUMULATE SUM OF MIDDLE NEURON ACTIVATION VALUE x OUTPUT LAYER WEIGHT FOR EACH OUTPUT NEURON
                     for (int j = 0; j < middle_neuron_count - 1; j++)
                     {
                         for (int k = 0; k < output_neuron_count; k++)
@@ -401,18 +467,16 @@ namespace OCRConsole
                         }
                     }
 
-                    //CALCULATE OUTPUT NEURON ACTIVATION VALUES
-
+                    // CALCULATE OUTPUT NEURON ACTIVATION VALUES
                     for (int j = 0; j < output_neuron_count; j++)
                     {
                         double sum = Convert.ToDouble(output_neuron_sum[j]);
                         output_neuron_value[j] = Convert.ToDecimal(1 / (1 + Math.Exp(-sum)));
                     }
 
-                    //END FEED-FORWARD
+                    //// END FEED-FORWARD
 
-                    //BACK-PROPAGATE ERROR CORRECTION
-
+                    // BACK-PROPAGATE ERROR CORRECTION
                     for (int j = 0; j < middle_neuron_count - 1; j++)
                     {
                         for (int k = 0; k < output_neuron_count; k++)
@@ -421,27 +485,29 @@ namespace OCRConsole
                         }
                     }
 
-                    //CALCULATE ABSOLUTE VALUE OUTPUT WEIGHT AVERAGE AND MAXIMUM FOR PATTERN
-
-                    OutputWeightCount = 0;
-                    AbsouluteValueOutputWeightSum = 0;
-                    MaxAbsoluteValueOutputWeight = 0;
+                    // CALCULATE ABSOLUTE VALUE OUTPUT WEIGHT AVERAGE AND MAXIMUM FOR PATTERN
+                    outputWeightCount = 0;
+                    absouluteValueOutputWeightSum = 0;
+                    maxAbsoluteValueOutputWeight = 0;
 
                     for (int x = 0; x < middle_neuron_count; x++)
                     {
                         for (int y = 0; y < output_neuron_count; y++)
                         {
-                            //outwt[i, j] = Convert.ToDecimal((randomNumbers.Next(0, 20000000) - 10000000)) / 10000000;
-                            OutputWeightCount += 1;
-                            AbsouluteValueOutputWeightSum += Math.Abs(outwt[x, y]);
-                            if (outwt[x, y] > MaxAbsoluteValueOutputWeight) { MaxAbsoluteValueOutputWeight = Math.Abs(outwt[x, y]); }
+                            // outwt[i, j] = Convert.ToDecimal((randomNumbers.Next(0, 20000000) - 10000000)) / 10000000;
+                            outputWeightCount += 1;
+                            absouluteValueOutputWeightSum += Math.Abs(outwt[x, y]);
+
+                            if (outwt[x, y] > maxAbsoluteValueOutputWeight)
+                            {
+                                maxAbsoluteValueOutputWeight = Math.Abs(outwt[x, y]);
+                            }
                         }
                     }
 
-                    AverageAbsoluteValueOutputWeight = AbsouluteValueOutputWeightSum / OutputWeightCount;
+                    averageAbsoluteValueOutputWeight = absouluteValueOutputWeightSum / outputWeightCount;
 
-                    //PRINT CYCLE DATA TO CONSOLE
-
+                    // PRINT CYCLE DATA TO CONSOLE
                     Console.WriteLine("        Pat-   Output  Mapped                                                    Max Abs Error   Target Max Abs   Avg Output Wt   Max Output Wt  Output Wt[0,0]");
                     Console.WriteLine("Cycle   tern   Neuron Character  Target Value    Output Value        Error       Previous Cycle   Cycle Error     This Pattern    This Pattern     This Cyle");
                     Console.WriteLine();
@@ -454,24 +520,21 @@ namespace OCRConsole
                             max_cycle_error = output_neuron_error[l];
                         }
 
-                        Console.WriteLine("[" + h.ToString("00") + "]\t[" + i.ToString("00") + "]\t[" + l.ToString("00") + "]\t[" + character[l] + "]\t[" + output_target_value[i, l].ToString("0.0000000000") + "]  [" + (output_neuron_value[l] + 0).ToString("0.0000000000") + "]  [" + (output_neuron_error[l] + 0).ToString("0.0000000000").PadLeft(13, ' ') + "]  [" + max_last_cycle_error.ToString("0.0000000000") + "]  [" + limit.ToString("0.0000000000") + "]  [" + AverageAbsoluteValueOutputWeight.ToString("0.0000000000") + "]  [" + MaxAbsoluteValueOutputWeight.ToString("0.0000000000") + "]  [" + outwt[0, 0].ToString("0.0000000000") + "]");
+                        Console.WriteLine("[" + h.ToString("00") + "]\t[" + i.ToString("00") + "]\t[" + l.ToString("00") + "]\t[" + character[l] + "]\t[" + output_target_value[i, l].ToString("0.0000000000") + "]  [" + (output_neuron_value[l] + 0).ToString("0.0000000000") + "]  [" + (output_neuron_error[l] + 0).ToString("0.0000000000").PadLeft(13, ' ') + "]  [" + max_last_cycle_error.ToString("0.0000000000") + "]  [" + limit.ToString("0.0000000000") + "]  [" + averageAbsoluteValueOutputWeight.ToString("0.0000000000") + "]  [" + maxAbsoluteValueOutputWeight.ToString("0.0000000000") + "]  [" + outwt[0, 0].ToString("0.0000000000") + "]");
                     }
 
                     Console.WriteLine();
                 }
 
-                //PRINT CYCLE STATISTICS TO CONSOLE
-
+                // PRINT CYCLE STATISTICS TO CONSOLE
                 Console.WriteLine("[max_abs_cycle_error] [" + max_cycle_error.ToString("0.0000000000") + "]");
                 Console.WriteLine();
                 Console.WriteLine("[target_max_abs_cycle_error] [" + limit.ToString("0.0000000000") + "]");
                 Console.WriteLine();
             }
 
-            //PRINT EXECUTION DURATION TO CONSOLE
-
-            DateTime date2 = new DateTime();
-            date2 = DateTime.Now;
+            // PRINT EXECUTION DURATION TO CONSOLE
+            DateTime date2 = DateTime.Now;
             TimeSpan interval = date2 - date1;
             Console.WriteLine("{0} - {1} = {2}", date2, date1, $"{interval:hh\\:mm\\:ss}");
             Console.ReadLine();
