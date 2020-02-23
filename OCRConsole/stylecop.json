@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
   "settings": {
     "documentationRules": {
+	    "xmlHeader": false,
       "companyName": "JoeThePimpernel",
-      "copyrightText": "Copyright (c) {companyName}. All Rights Reserved.\nLicensed under the {licenseName} license. See {licenseFile} file in the project root for full license information.",
+      "copyrightText": "Copyright (c) {companyName}. All Rights Reserved.",
       "variables": {
         "licenseName": "MIT",
         "licenseFile": "LICENSE"
       },
-      "xmlHeader": true,
       "fileNamingConvention": "metadata",
       "documentInterfaces": false,
       "documentExposedElements": false,

@@ -1,7 +1,4 @@
-﻿// <copyright file="Program.cs" company="JoeThePimpernel">
-// Copyright (c) JoeThePimpernel. All Rights Reserved.
-// Licensed under the MIT license. See LICENSE file in the project root for full license information.
-// </copyright>
+﻿// Copyright (c) JoeThePimpernel. All Rights Reserved.
 
 namespace OCRConsole
 {

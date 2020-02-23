@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using OCRConsole.Renderers;
+﻿// Copyright (c) JoeThePimpernel. All Rights Reserved.
 
 namespace OCRConsole.Models
 {
+    using OCRConsole.Renderers;
+
     public class CanvasFactory
     {
         private readonly IOcrRenderer ocrRenderer;
