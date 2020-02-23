@@ -7,16 +7,17 @@ namespace OCRConsole.Models
 
     public class Canvas
     {
-        private readonly int[][] canvas;
+        private readonly IOcrRenderer ocrRenderer;
 
-        public Canvas(IOcrRenderer ocrRenderer, int[][] characterMatrix)
+        public Canvas(IOcrRenderer ocrRenderer)
         {
-            this.canvas = characterMatrix;
+            this.ocrRenderer = ocrRenderer;
         }
 
-        public void Render()
+        public void Render(OcrCharacter ocrCharacter)
         {
             throw new NotImplementedException();
+            ////this.ocrRenderer.Render(ocrCharacter);
         }
     }
 }

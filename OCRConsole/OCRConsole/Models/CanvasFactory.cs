@@ -2,6 +2,7 @@
 
 namespace OCRConsole.Models
 {
+    using System;
     using OCRConsole.Renderers;
 
     public class CanvasFactory
@@ -13,9 +14,10 @@ namespace OCRConsole.Models
             this.ocrRenderer = ocrRenderer;
         }
 
-        public Canvas Create(int[][] characterMatrix)
+        public Canvas Create(int[] characterMatrix)
         {
-            return new Canvas(this.ocrRenderer, characterMatrix);
+            throw new NotImplementedException();
+            ////return new Canvas(this.ocrRenderer, characterMatrix);
         }
     }
 }

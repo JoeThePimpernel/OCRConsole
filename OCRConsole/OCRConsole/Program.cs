@@ -3,6 +3,8 @@
 namespace OCRConsole
 {
     using System;
+    using System.Collections.Generic;
+    using OCRConsole.Models;
 
     public class Program
     {
@@ -12,300 +14,84 @@ namespace OCRConsole
             //// int input_values = 25;
             //// int output_target_values = 36;
 
-            OcrCharacter[] characters = new Ocr[]
+            var characters = new List<OcrCharacter>
             {
-                'A',
-                'B',
-                'C',
-                'D',
-                'E',
-                'F',
-                'G',
-                'H',
-                'I',
-                'J',
-                'K',
-                'L',
-                'M',
-                'N',
-                'O',
-                'P',
-                'Q',
-                'R',
-                'S',
-                'T',
-                'U',
-                'V',
-                'W',
-                'X',
-                'Y',
-                'Z',
-                '0',
-                '1',
-                '2',
-                '3',
-                '4',
-                '5',
-                '6',
-                '7',
-                '8',
-                '9',
+                new OcrCharacter('A', KnownAbstractPatterns.UpperAlphaA),
+                new OcrCharacter('B', KnownAbstractPatterns.UpperAlphaB),
+                new OcrCharacter('C', KnownAbstractPatterns.UpperAlphaC),
+                new OcrCharacter('D', KnownAbstractPatterns.UpperAlphaD),
+                new OcrCharacter('E', KnownAbstractPatterns.UpperAlphaE),
+                new OcrCharacter('F', KnownAbstractPatterns.UpperAlphaF),
+                new OcrCharacter('G', KnownAbstractPatterns.UpperAlphaG),
+                new OcrCharacter('H', KnownAbstractPatterns.UpperAlphaH),
+                new OcrCharacter('I', KnownAbstractPatterns.UpperAlphaI),
+                new OcrCharacter('J', KnownAbstractPatterns.UpperAlphaJ),
+                new OcrCharacter('K', KnownAbstractPatterns.UpperAlphaK),
+                new OcrCharacter('L', KnownAbstractPatterns.UpperAlphaL),
+                new OcrCharacter('M', KnownAbstractPatterns.UpperAlphaM),
+                new OcrCharacter('N', KnownAbstractPatterns.UpperAlphaN),
+                new OcrCharacter('O', KnownAbstractPatterns.UpperAlphaO),
+                new OcrCharacter('P', KnownAbstractPatterns.UpperAlphaP),
+                new OcrCharacter('Q', KnownAbstractPatterns.UpperAlphaQ),
+                new OcrCharacter('R', KnownAbstractPatterns.UpperAlphaR),
+                new OcrCharacter('S', KnownAbstractPatterns.UpperAlphaS),
+                new OcrCharacter('T', KnownAbstractPatterns.UpperAlphaT),
+                new OcrCharacter('U', KnownAbstractPatterns.UpperAlphaU),
+                new OcrCharacter('V', KnownAbstractPatterns.UpperAlphaV),
+                new OcrCharacter('W', KnownAbstractPatterns.UpperAlphaW),
+                new OcrCharacter('X', KnownAbstractPatterns.UpperAlphaX),
+                new OcrCharacter('Y', KnownAbstractPatterns.UpperAlphaY),
+                new OcrCharacter('Z', KnownAbstractPatterns.UpperAlphaZ),
+                new OcrCharacter('0', KnownAbstractPatterns.Numeric0),
+                new OcrCharacter('1', KnownAbstractPatterns.Numeric1),
+                new OcrCharacter('2', KnownAbstractPatterns.Numeric2),
+                new OcrCharacter('3', KnownAbstractPatterns.Numeric3),
+                new OcrCharacter('4', KnownAbstractPatterns.Numeric4),
+                new OcrCharacter('5', KnownAbstractPatterns.Numeric5),
+                new OcrCharacter('6', KnownAbstractPatterns.Numeric6),
+                new OcrCharacter('7', KnownAbstractPatterns.Numeric7),
+                new OcrCharacter('8', KnownAbstractPatterns.Numeric8),
+                new OcrCharacter('9', KnownAbstractPatterns.Numeric9),
             };
 
-            int[,] input_value = new int[,]
+            var trainingPatterns = new List<AbstractPattern>
             {
-                {
-                    0, 1, 1, 1, 0,
-                    1, 0, 0, 0, 1,
-                    1, 1, 1, 1, 1,
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                },
-                {
-                    1, 1, 1, 1, 0,
-                    1, 0, 0, 0, 1,
-                    1, 1, 1, 1, 0,
-                    1, 0, 0, 0, 1,
-                    1, 1, 1, 1, 0,
-                },
-                {
-                    1, 1, 1, 1, 1,
-                    1, 0, 0, 0, 0,
-                    1, 0, 0, 0, 0,
-                    1, 0, 0, 0, 0,
-                    1, 1, 1, 1, 1,
-                },
-                {
-                    1, 1, 1, 1, 0,
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                    1, 1, 1, 1, 0,
-                },
-                {
-                    1, 1, 1, 1, 1,
-                    1, 0, 0, 0, 0,
-                    1, 1, 1, 0, 0,
-                    1, 0, 0, 0, 0,
-                    1, 1, 1, 1, 1,
-                },
-                {
-                    1, 1, 1, 1, 1,
-                    1, 0, 0, 0, 0,
-                    1, 1, 1, 0, 0,
-                    1, 0, 0, 0, 0,
-                    1, 0, 0, 0, 0,
-                },
-                {
-                    1, 1, 1, 1, 1,
-                    1, 0, 0, 0, 0,
-                    1, 0, 1, 1, 1,
-                    1, 0, 0, 0, 1,
-                    1, 1, 1, 1, 1,
-                },
-                {
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                    1, 1, 1, 1, 1,
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                },
-                {
-                    0, 1, 1, 1, 0,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                    0, 1, 1, 1, 0,
-                },
-                {
-                    0, 0, 0, 1, 0,
-                    0, 0, 0, 1, 0,
-                    0, 0, 0, 1, 0,
-                    0, 1, 0, 1, 0,
-                    0, 1, 1, 1, 0,
-                },
-                {
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 1, 0,
-                    1, 1, 1, 0, 0,
-                    1, 0, 0, 1, 0,
-                    1, 0, 0, 0, 1,
-                },
-                {
-                    1, 0, 0, 0, 0,
-                    1, 0, 0, 0, 0,
-                    1, 0, 0, 0, 0,
-                    1, 0, 0, 0, 0,
-                    1, 1, 1, 1, 1,
-                },
-                {
-                    1, 0, 0, 0, 1,
-                    1, 1, 0, 1, 1,
-                    1, 0, 1, 0, 1,
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                },
-                {
-                    1, 0, 0, 0, 1,
-                    1, 1, 0, 0, 1,
-                    1, 0, 1, 0, 1,
-                    1, 0, 0, 1, 1,
-                    1, 0, 0, 0, 1,
-                },
-                {
-                    0, 1, 1, 1, 0,
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                    0, 1, 1, 1, 0,
-                },
-                {
-                    1, 1, 1, 1, 0,
-                    1, 0, 0, 0, 1,
-                    1, 1, 1, 1, 0,
-                    1, 0, 0, 0, 0,
-                    1, 0, 0, 0, 0,
-                },
-                {
-                    0, 1, 1, 0, 0,
-                    1, 0, 0, 1, 0,
-                    1, 0, 0, 1, 0,
-                    1, 0, 0, 1, 0,
-                    0, 1, 1, 0, 1,
-                },
-                {
-                    1, 1, 1, 1, 0,
-                    1, 0, 0, 0, 1,
-                    1, 1, 1, 1, 0,
-                    1, 0, 0, 1, 0,
-                    1, 0, 0, 0, 1,
-                },
-                {
-                    0, 1, 1, 1, 1,
-                    1, 0, 0, 0, 0,
-                    0, 1, 1, 1, 0,
-                    0, 0, 0, 0, 1,
-                    1, 1, 1, 1, 0,
-                },
-                {
-                    1, 1, 1, 1, 1,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                },
-                {
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                    0, 1, 1, 1, 0,
-                },
-                {
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                    0, 1, 0, 1, 0,
-                    0, 0, 1, 0, 0,
-                },
-                {
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                    1, 0, 1, 0, 1,
-                    1, 1, 0, 1, 1,
-                    1, 0, 0, 0, 1,
-                },
-                {
-                    1, 0, 0, 0, 1,
-                    0, 1, 0, 1, 0,
-                    0, 0, 1, 0, 0,
-                    0, 1, 0, 1, 0,
-                    1, 0, 0, 0, 1,
-                },
-                {
-                    1, 0, 0, 0, 1,
-                    0, 1, 0, 1, 0,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                },
-                {
-                    1, 1, 1, 1, 1,
-                    0, 0, 0, 1, 0,
-                    0, 0, 1, 0, 0,
-                    0, 1, 0, 0, 0,
-                    1, 1, 1, 1, 1,
-                },
-                {
-                    0, 1, 1, 1, 0,
-                    1, 0, 0, 1, 1,
-                    1, 0, 1, 0, 1,
-                    1, 1, 0, 0, 1,
-                    0, 1, 1, 1, 0,
-                },
-                {
-                    0, 1, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                },
-                {
-                    1, 1, 1, 1, 0,
-                    0, 0, 0, 0, 1,
-                    0, 1, 1, 1, 0,
-                    1, 0, 0, 0, 0,
-                    1, 1, 1, 1, 1,
-                },
-                {
-                    1, 1, 1, 1, 0,
-                    0, 0, 0, 0, 1,
-                    0, 1, 1, 1, 0,
-                    0, 0, 0, 0, 1,
-                    1, 1, 1, 1, 0,
-                },
-                {
-                    1, 0, 0, 0, 1,
-                    1, 0, 0, 0, 1,
-                    1, 1, 1, 1, 1,
-                    0, 0, 0, 0, 1,
-                    0, 0, 0, 0, 1,
-                },
-                {
-                    1, 1, 1, 1, 1,
-                    1, 0, 0, 0, 0,
-                    1, 1, 1, 1, 0,
-                    0, 0, 0, 0, 1,
-                    1, 1, 1, 1, 0,
-                },
-                {
-                    1, 0, 0, 0, 0,
-                    1, 0, 0, 0, 0,
-                    1, 1, 1, 1, 0,
-                    1, 0, 0, 0, 1,
-                    0, 1, 1, 1, 0,
-                },
-                {
-                    1, 1, 1, 1, 1,
-                    0, 0, 0, 0, 1,
-                    0, 0, 0, 1, 0,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                },
-                {
-                    0, 1, 1, 1, 0,
-                    1, 0, 0, 0, 1,
-                    0, 1, 1, 1, 0,
-                    1, 0, 0, 0, 1,
-                    0, 1, 1, 1, 0,
-                },
-                {
-                    0, 1, 1, 1, 0,
-                    1, 0, 0, 0, 1,
-                    0, 1, 1, 1, 1,
-                    0, 0, 0, 0, 1,
-                    0, 0, 0, 0, 1,
-                },
+                KnownAbstractPatterns.UpperAlphaA,
+                KnownAbstractPatterns.UpperAlphaB,
+                KnownAbstractPatterns.UpperAlphaC,
+                KnownAbstractPatterns.UpperAlphaD,
+                KnownAbstractPatterns.UpperAlphaE,
+                KnownAbstractPatterns.UpperAlphaF,
+                KnownAbstractPatterns.UpperAlphaG,
+                KnownAbstractPatterns.UpperAlphaH,
+                KnownAbstractPatterns.UpperAlphaI,
+                KnownAbstractPatterns.UpperAlphaJ,
+                KnownAbstractPatterns.UpperAlphaK,
+                KnownAbstractPatterns.UpperAlphaL,
+                KnownAbstractPatterns.UpperAlphaM,
+                KnownAbstractPatterns.UpperAlphaN,
+                KnownAbstractPatterns.UpperAlphaO,
+                KnownAbstractPatterns.UpperAlphaP,
+                KnownAbstractPatterns.UpperAlphaQ,
+                KnownAbstractPatterns.UpperAlphaR,
+                KnownAbstractPatterns.UpperAlphaS,
+                KnownAbstractPatterns.UpperAlphaT,
+                KnownAbstractPatterns.UpperAlphaU,
+                KnownAbstractPatterns.UpperAlphaV,
+                KnownAbstractPatterns.UpperAlphaW,
+                KnownAbstractPatterns.UpperAlphaX,
+                KnownAbstractPatterns.UpperAlphaY,
+                KnownAbstractPatterns.UpperAlphaZ,
+                KnownAbstractPatterns.Numeric0,
+                KnownAbstractPatterns.Numeric1,
+                KnownAbstractPatterns.Numeric2,
+                KnownAbstractPatterns.Numeric3,
+                KnownAbstractPatterns.Numeric4,
+                KnownAbstractPatterns.Numeric5,
+                KnownAbstractPatterns.Numeric6,
+                KnownAbstractPatterns.Numeric7,
+                KnownAbstractPatterns.Numeric8,
+                KnownAbstractPatterns.Numeric9,
             };
 
             int[,] output_target_value = new int[,]
@@ -350,8 +136,8 @@ namespace OCRConsole
             };
 
             // CREATE VARIABLES
-            int patterns = character.Length;
-            int input_values = input_value.Length / patterns;
+            int patterns = characters.Count;
+            int input_values = trainingPatterns.Count / patterns;
             int output_target_values = output_target_value.Length / patterns;
 
             int input_neuron_count = input_values + 1;
@@ -438,7 +224,8 @@ namespace OCRConsole
                     {
                         for (int k = 0; k < middle_neuron_count - 1; k++)
                         {
-                            middle_neuron_sum[k] += input_value[i, j] * inwt[j, k];
+                            middle_neuron_sum[k] += trainingPatterns[i].GetLayerWeight(j) * inwt[j, k];
+                            //// (TODO: remove before PR) middle_neuron_sum[k] += input_value[i, j] * inwt[j, k];
                         }
                     }
 
@@ -517,7 +304,7 @@ namespace OCRConsole
                             max_cycle_error = output_neuron_error[l];
                         }
 
-                        Console.WriteLine("[" + h.ToString("00") + "]\t[" + i.ToString("00") + "]\t[" + l.ToString("00") + "]\t[" + character[l] + "]\t[" + output_target_value[i, l].ToString("0.0000000000") + "]  [" + (output_neuron_value[l] + 0).ToString("0.0000000000") + "]  [" + (output_neuron_error[l] + 0).ToString("0.0000000000").PadLeft(13, ' ') + "]  [" + max_last_cycle_error.ToString("0.0000000000") + "]  [" + limit.ToString("0.0000000000") + "]  [" + averageAbsoluteValueOutputWeight.ToString("0.0000000000") + "]  [" + maxAbsoluteValueOutputWeight.ToString("0.0000000000") + "]  [" + outwt[0, 0].ToString("0.0000000000") + "]");
+                        Console.WriteLine("[" + h.ToString("00") + "]\t[" + i.ToString("00") + "]\t[" + l.ToString("00") + "]\t[" + characters[l].Character + "]\t[" + output_target_value[i, l].ToString("0.0000000000") + "]  [" + (output_neuron_value[l] + 0).ToString("0.0000000000") + "]  [" + (output_neuron_error[l] + 0).ToString("0.0000000000").PadLeft(13, ' ') + "]  [" + max_last_cycle_error.ToString("0.0000000000") + "]  [" + limit.ToString("0.0000000000") + "]  [" + averageAbsoluteValueOutputWeight.ToString("0.0000000000") + "]  [" + maxAbsoluteValueOutputWeight.ToString("0.0000000000") + "]  [" + outwt[0, 0].ToString("0.0000000000") + "]");
                     }
 
                     Console.WriteLine();

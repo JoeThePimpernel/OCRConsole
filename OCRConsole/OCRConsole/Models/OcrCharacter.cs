@@ -4,13 +4,19 @@ namespace OCRConsole.Models
 {
     public class OcrCharacter
     {
-        private readonly char ocrCharacter;
-        private readonly Canvas canvas;
+        private readonly IAbstractPattern abstractRepresentation;
 
-        public OcrCharacter(ICanvasFactory canvasFactory, char characterValue, int[][] characterMatrix)
+        public OcrCharacter(char characterValue, IAbstractPattern abstractRepresentation)
         {
-            this.ocrCharacter = characterValue;
-            this.canvas = canvasFactory.Create(characterMatrix);
+            this.Character = characterValue;
+            this.abstractRepresentation = abstractRepresentation;
+        }
+
+        public char Character { get; }
+
+        public IAbstractPattern GetAbstractRepresentation()
+        {
+            return this.abstractRepresentation;
         }
     }
 }

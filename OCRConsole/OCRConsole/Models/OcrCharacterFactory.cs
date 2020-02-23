@@ -2,6 +2,8 @@
 
 namespace OCRConsole.Models
 {
+    using System;
+
     public class OcrCharacterFactory
     {
         private readonly ICanvasFactory canvasFactory;
@@ -13,7 +15,8 @@ namespace OCRConsole.Models
 
         public OcrCharacter Create(char characterValue, int[][] characterMatrix)
         {
-            return new OcrCharacter(this.canvasFactory, characterValue, characterMatrix);
+            throw new NotImplementedException();
+            ////return new OcrCharacter(this.canvasFactory, characterValue, characterMatrix);
         }
     }
 }

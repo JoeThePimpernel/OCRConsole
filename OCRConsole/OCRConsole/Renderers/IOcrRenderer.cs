@@ -4,5 +4,6 @@ namespace OCRConsole.Renderers
 {
     public interface IOcrRenderer
     {
+        void Render();
     }
 }
