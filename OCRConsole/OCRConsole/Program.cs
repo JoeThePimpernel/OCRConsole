@@ -15,7 +15,7 @@ namespace OCRConsole
             //// int input_values = 25;
             //// int output_target_values = 36;
 
-            char[] character = new char[]
+            OcrCharacter[] characters = new Ocr[]
             {
                 'A',
                 'B',
