@@ -5,14 +5,14 @@ using OCRConsole.Models;
 namespace OCRConsole.UnitTests
 {
     [TestClass]
-    public class AbstractPatternTests
+    public class OcrPatternTests
     {
-        private IAbstractPattern abstractPattern;
+        private IOcrPattern ocrPattern;
 
         [TestInitialize]
         public void RunBeforeEachTest()
         {
-            int[] pattern = new int[]
+            int[] sequence = new int[]
             {
                 0, 1, 1, 1, 0,
                 1, 0, 0, 0, 1,
@@ -21,14 +21,14 @@ namespace OCRConsole.UnitTests
                 1, 0, 0, 0, 1,
             };
 
-            this.abstractPattern = new AbstractPattern(pattern);
+            this.ocrPattern = new OcrPattern(sequence);
         }
 
         [TestMethod]
-        public void AbstractPattern_ShouldGetCorrectLayerWeights()
+        public void OcrPattern_ShouldGetCorrectLayerWeights()
         {
-            this.abstractPattern.GetLayerWeight(0).Should().Be(0);
-            this.abstractPattern.GetLayerWeight(1).Should().Be(1);
+            this.ocrPattern.GetLayerWeight(0).Should().Be(0);
+            this.ocrPattern.GetLayerWeight(1).Should().Be(1);
         }
     }
 }

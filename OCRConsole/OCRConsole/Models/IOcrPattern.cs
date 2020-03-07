@@ -2,8 +2,8 @@
 
 namespace OCRConsole.Models
 {
-    public interface ICanvasFactory
+    public interface IOcrPattern
     {
-        Canvas Create(int[][] characterMatrix);
+        int GetLayerWeight(int layer);
     }
 }

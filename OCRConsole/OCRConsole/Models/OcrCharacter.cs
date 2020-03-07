@@ -4,19 +4,14 @@ namespace OCRConsole.Models
 {
     public class OcrCharacter
     {
-        private readonly IAbstractPattern abstractRepresentation;
-
-        public OcrCharacter(char characterValue, IAbstractPattern abstractRepresentation)
+        public OcrCharacter(char characterValue, IOcrPattern ocrPattern)
         {
             this.Character = characterValue;
-            this.abstractRepresentation = abstractRepresentation;
+            this.OcrPattern = ocrPattern;
         }
 
         public char Character { get; }
 
-        public IAbstractPattern GetAbstractRepresentation()
-        {
-            return this.abstractRepresentation;
-        }
+        public IOcrPattern OcrPattern { get; }
     }
 }

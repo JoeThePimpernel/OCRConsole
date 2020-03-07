@@ -2,20 +2,20 @@
 
 namespace OCRConsole.Models
 {
-    public class AbstractPattern : IAbstractPattern
+    public class OcrPattern : IOcrPattern
     {
-        private readonly int[] representation;
+        private readonly int[] sequence;
 
-        public AbstractPattern(int[] representation)
+        public OcrPattern(int[] sequence)
         {
-            this.representation = representation;
+            this.sequence = sequence;
         }
 
         // TODO: consider migrating this behavior into a canvas model
         public int GetLayerWeight(int layer)
         {
             // TODO: very trusting method, add validation if not refactored entirely
-            return this.representation[0];
+            return this.sequence[0];
         }
     }
 }

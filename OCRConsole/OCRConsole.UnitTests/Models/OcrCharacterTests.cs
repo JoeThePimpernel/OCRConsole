@@ -12,10 +12,10 @@ namespace OCRConsole.UnitTests.Models
         public void OcrCharacter_CanBeConstructed()
         {
             // arrange
-            var abstractRepresentation = Substitute.For<IAbstractPattern>();
+            var ocrPattern = Substitute.For<IOcrPattern>();
 
             // act
-            var ocrCharacter = new OcrCharacter('A', abstractRepresentation);
+            var ocrCharacter = new OcrCharacter('A', ocrPattern);
 
             // assert
             ocrCharacter.Should().NotBeNull();
